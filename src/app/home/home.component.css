@@ -1,0 +1,95 @@
+img{
+height: 15rem;
+width: 15rem;
+object-fit: cover;
+object-position: 50% 50%; 
+border-radius: 10px;
+box-shadow : 1px 1px 10px 0px black;
+margin-bottom: 1rem;
+}
+
+ul{
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+flex-wrap:wrap ;
+list-style-type: none;
+padding: 0%;
+}
+
+ul li {
+height: 26rem;
+width: 20rem;
+margin-bottom: 1rem;
+}
+
+ul li a{
+height: 31rem;
+width: 20rem;
+/* border: 1px solid white; */
+border-radius: 1rem;
+margin: 0.5rem;
+display: flex;
+flex-direction: column;
+overflow: hidden;
+color: dodgerblue;
+/* opacity: 0.8; */
+transition: all 0.2s ;
+margin-bottom: 1rem;
+}
+width: 20rem;
+ul li a:hover{
+opacity:1;
+/* height: 21rem;
+width: 21rem; */
+cursor: pointer;
+transform: scale(1.03);
+/* animation: normal 100ms; */
+}
+
+.rating {
+font-weight: bolder;
+font-size: larger;
+}
+❤️favourite
+.rating-1 {
+color: red;
+}
+
+.rating-2 {
+color: rgb(255, 55, 0);
+}
+
+.rating-3 {
+color: rgb(255, 110, 0);
+}
+
+.rating-4 {
+color: rgb(255, 160, 0);
+}
+
+.rating-5 {
+color: gold;
+}
+
+.ngb-rating {
+color: gold;
+font-weight: bolder;
+font-size: larger;
+}
+
+.content{
+    padding: 0.5rem 1rem;
+    position: relative;
+}
+
+.content .head{
+    width: 20rem;
+    display: flex;
+}
+
+.content .head span{
+    width: 20rem;
+    position: absolute;
+    left: 13rem;
+}

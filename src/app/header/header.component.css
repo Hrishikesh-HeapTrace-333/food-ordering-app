@@ -1,0 +1,49 @@
+header {
+    background-color: azure;
+    padding: 0;
+    border-bottom: 1px solid deepskyblue;
+    margin: 0;
+}
+
+a {
+    padding: 1em;
+    margin: 0;
+    color: dodgerblue;
+    transition: transform 0.3s ease-in-out, background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+a:hover {
+    background-color: deepskyblue;
+    color: azure;
+}
+
+.containere {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 1em; */
+}
+
+a.logo {
+    font-weight: bold;
+    
+    text-decoration: none;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    padding: 1em;
+    text-decoration: none;
+    display: inline-block;
+}
