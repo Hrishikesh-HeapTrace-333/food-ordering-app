@@ -1,0 +1,9 @@
+img {
+    height: 15rem;
+    width: 15rem;
+    object-fit: cover;
+    object-position: 50% 50%;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px 0px black;
+    margin-bottom: 1rem;
+  }

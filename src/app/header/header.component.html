@@ -1,12 +1,38 @@
 <header>
-    <div class="containere">
-        <a routerLink="/" class="logo"> HK 😄 Food Corner!</a>
-        <nav>
-            <ul>
-                <li>
-                    <a routerLink="/cart-page" >Cart</a>
-                </li>
-            </ul>
-        </nav>
+  <div class="containere">
+    <div class="logo">
+      <a routerLink="/home"> HK 😄 Food Corner!</a>
+      <a routerLink="/about">About</a>
     </div>
+    <nav>
+      <ul>
+        <div *ngIf="isRegistered; else showRegistration">
+          <li>
+            <h5>Hi! {{ name }}</h5>
+          </li>
+          <li>
+            <a (click)="logout()" routerLink="/login">Logout</a>
+          </li>
+        </div>
+
+        <ng-template #showRegistration>
+          <li>
+            <a routerLink="/registration">Register</a>
+          </li>
+
+          <li>
+            <a routerLink="/login">Login</a>
+          </li>
+        </ng-template>
+        <li>
+          <a routerLink="/cart">
+            Cart
+            <span *ngIf="cartItemCount > 0" class="badge">
+              {{ cartItemCount }}
+            </span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </header>

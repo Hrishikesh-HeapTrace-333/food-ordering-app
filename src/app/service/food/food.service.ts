@@ -1,103 +1,40 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { foods } from 'src/app/shared/model/food';
+import { Store } from '@ngrx/store';
+import { Observable, of } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { Food } from 'src/app/shared/model/food';
+import { getFoodStateA, setFoodStateA } from 'src/app/store/food.action'; // Import setFoodStateA action
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FoodService {
+  public textFilter : string = '';
+  private foods: Food[] = [];
+  private getFoodUrl = 'assets/food.json';
 
-  constructor() { }
+  constructor(
+    private http: HttpClient,
+    private store: Store<{ foods: Food[] }>
+  ) {}
 
-  getAll() : foods[]{
-    return [
-      {
-        "id": 1,
-        "price": 9.99,
-        "name": "Cheeseburger",
-        "favourite": true,
-        "star": 3.5,
-        "tags": ["burger", "beef"],
-        "imageUrl": "/assets/burger.jpeg",
-        "cookTime": "15-20 minutes",
-        "origins": "USA"
-      },
-      {
-        "id": 2,
-        "price": 12.50,
-        "name": "Grilled Chicken Leg Piece",
-        "favourite": false,
-        "star": 4.2,
-        "tags": ["chicken", "grill"],
-        "imageUrl": "/assets/chickenlegpiece.jpg",
-        "cookTime": "30-40 minutes",
-        "origins": "Global"
-      },
-      {
-        "id": 3,
-        "price": 7.50,
-        "name": "Masala Dosa",
-        "favourite": true,
-        "star": 4.8,
-        "tags": ["dosa", "vegetarian", "south indian"],
-        "imageUrl": "/assets/dosa.jpg",
-        "cookTime": "20-25 minutes",
-        "origins": "India"
-      },
-      {
-        "id": 4,
-        "price": 3.50,
-        "name": "French Fries",
-        "favourite": false,
-        "star": 3.0,
-        "tags": ["snack", "vegetarian"],
-        "imageUrl": "/assets/frenchfries.jpeg",
-        "cookTime": "10-15 minutes",
-        "origins": "Belgium"
-      },
-      {
-        "id": 5,
-        "price": 5.00,
-        "name": "Ice Cream Sundae",
-        "favourite": true,
-        "star": 4.7,
-        "tags": ["dessert", "sweet"],
-        "imageUrl": "/assets/icecream.jpg",
-        "cookTime": "5-10 minutes",
-        "origins": "Global"
-      },
-      {
-        "id": 6,
-        "price": 2.00,
-        "name": "Pani Puri",
-        "favourite": false,
-        "star": 3.6,
-        "tags": ["street food", "vegetarian"],
-        "imageUrl": "/assets/panipuri.jpeg",
-        "cookTime": "10-15 minutes",
-        "origins": "India"
-      },
-      {
-        "id": 7,
-        "price": 11.99,
-        "name": "Pepperoni Pizza",
-        "favourite": true,
-        "star": 4.9,
-        "tags": ["pizza", "meat"],
-        "imageUrl": "/assets/pizza.jpeg",
-        "cookTime": "15-20 minutes",
-        "origins": "Italy"
-      },
-      {
-        "id": 8,
-        "price": 6.75,
-        "name": "Club Sandwich",
-        "favourite": false,
-        "star": 4.3,
-        "tags": ["sandwich", "vegetarian"],
-        "imageUrl": "/assets/sandwich.jpg",
-        "cookTime": "5-10 minutes",
-        "origins": "USA"
-      }
-    ];
+  // Fetch data from URL, store in store, and return the stored data
+  getAll(): Observable<any> {
+    return this.http.get<any>(this.getFoodUrl).pipe(
+      tap((data) => {
+        this.foods = data; // Update local foods array
+        this.store.dispatch(setFoodStateA({ foods: this.foods })); // Dispatch action with fetched data
+      })
+    );
+  }
+
+  // Return the stored data from the store
+  getStoredFoods(): Observable<Food[]> {
+    return this.store.select((state) => {
+      // console.log("getStoredFoods()");
+      // console.log(state.foods);
+      return state.foods;
+    }); // Return the observable directly
   }
 }

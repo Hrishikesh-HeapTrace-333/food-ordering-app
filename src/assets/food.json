@@ -1,0 +1,422 @@
+[
+    {
+        "id": 1,
+        "price": 9.99,
+        "name": "Cheeseburger",
+        "favourite": true,
+        "star": 3.5,
+        "tags": [
+            "burger",
+            "beef"
+        ],
+        "imageUrl": "/assets/burger.jpeg",
+        "cookTime": "15-20 minutes",
+        "origins": "USA",
+        "facts": [
+            "First created in the 1920s in Pasadena, California.",
+            "Popularized globally by fast food chains like McDonald's."
+        ],
+        "calories": 600,
+        "nutrition": {
+            "fat": "30g",
+            "carbohydrates": "50g",
+            "protein": "25g",
+            "sodium": "1200mg",
+            "fiber": "5g"
+        }
+    },
+    {
+        "id": 2,
+        "price": 12.50,
+        "name": "Grilled Chicken Leg Piece",
+        "favourite": false,
+        "star": 4.2,
+        "tags": [
+            "chicken",
+            "grill"
+        ],
+        "imageUrl": "/assets/chickenlegpiece.jpg",
+        "cookTime": "30-40 minutes",
+        "origins": "Global",
+        "facts": [
+            "Grilling chicken enhances its flavor and texture.",
+            "High in protein and low in fat, making it a healthy choice."
+        ],
+        "calories": 300,
+        "nutrition": {
+            "fat": "15g",
+            "carbohydrates": "10g",
+            "protein": "35g",
+            "sodium": "800mg",
+            "fiber": "3g"
+        }
+    },
+    {
+        "id": 3,
+        "price": 7.50,
+        "name": "Masala Dosa",
+        "favourite": true,
+        "star": 4.8,
+        "tags": [
+            "dosa",
+            "vegetarian",
+            "south indian"
+        ],
+        "imageUrl": "/assets/dosa.jpg",
+        "cookTime": "20-25 minutes",
+        "origins": "India",
+        "facts": [
+            "Traditional South Indian breakfast item.",
+            "Thin rice crepe filled with spiced potato filling."
+        ],
+        "calories": 350,
+        "nutrition": {
+            "fat": "10g",
+            "carbohydrates": "60g",
+            "protein": "8g",
+            "sodium": "700mg",
+            "fiber": "4g"
+        }
+    },
+    {
+        "id": 4,
+        "price": 3.50,
+        "name": "French Fries",
+        "favourite": false,
+        "star": 3.0,
+        "tags": [
+            "snack",
+            "vegetarian"
+        ],
+        "imageUrl": "/assets/frenchfries.jpeg",
+        "cookTime": "10-15 minutes",
+        "origins": "Belgium",
+        "facts": [
+            "Believed to have originated in Belgium in the late 17th century.",
+            "Commonly served as a side dish or snack."
+        ],
+        "calories": 300,
+        "nutrition": {
+            "fat": "15g",
+            "carbohydrates": "40g",
+            "protein": "4g",
+            "sodium": "600mg",
+            "fiber": "3g"
+        }
+    },
+    {
+        "id": 5,
+        "price": 5.00,
+        "name": "Ice Cream Sundae",
+        "favourite": true,
+        "star": 4.7,
+        "tags": [
+            "dessert",
+            "sweet"
+        ],
+        "imageUrl": "/assets/icecream.jpg",
+        "cookTime": "5-10 minutes",
+        "origins": "Global",
+        "facts": [
+            "Traditional American dessert consisting of ice cream topped with syrup, whipped cream, and various toppings.",
+            "Popularized in the late 19th century in the United States."
+        ],
+        "calories": 400,
+        "nutrition": {
+            "fat": "20g",
+            "carbohydrates": "50g",
+            "protein": "5g",
+            "sodium": "150mg",
+            "fiber": "2g"
+        }
+    },
+    {
+        "id": 6,
+        "price": 2.00,
+        "name": "Pani Puri",
+        "favourite": false,
+        "star": 3.6,
+        "tags": [
+            "street food",
+            "vegetarian"
+        ],
+        "imageUrl": "/assets/panipuri.jpeg",
+        "cookTime": "10-15 minutes",
+        "origins": "India",
+        "facts": [
+            "Popular street food in India, also known as golgappa or phuchka.",
+            "Crunchy hollow puris filled with spicy tangy water."
+        ],
+        "calories": 100,
+        "nutrition": {
+            "fat": "5g",
+            "carbohydrates": "15g",
+            "protein": "2g",
+            "sodium": "300mg",
+            "fiber": "1g"
+        }
+    },
+    {
+        "id": 7,
+        "price": 11.99,
+        "name": "Pepperoni Pizza",
+        "favourite": true,
+        "star": 4.9,
+        "tags": [
+            "pizza",
+            "meat"
+        ],
+        "imageUrl": "/assets/pizza.jpeg",
+        "cookTime": "15-20 minutes",
+        "origins": "Italy",
+        "facts": [
+            "Classic Italian dish, traditionally topped with tomato sauce, mozzarella cheese, and pepperoni slices.",
+            "Popular worldwide and often associated with Italian-American cuisine."
+        ],
+        "calories": 280,
+        "nutrition": {
+            "fat": "12g",
+            "carbohydrates": "30g",
+            "protein": "15g",
+            "sodium": "700mg",
+            "fiber": "2g"
+        }
+    },
+    {
+        "id": 8,
+        "price": 6.75,
+        "name": "Club Sandwich",
+        "favourite": false,
+        "star": 4.3,
+        "tags": [
+            "sandwich",
+            "vegetarian"
+        ],
+        "imageUrl": "/assets/sandwich.jpg",
+        "cookTime": "5-10 minutes",
+        "origins": "USA",
+        "facts": [
+            "Popular American sandwich with layers of meat, cheese, lettuce, and tomato.",
+            "Named for the 'club' or social atmosphere where it was first served."
+        ],
+        "calories": 450,
+        "nutrition": {
+            "fat": "25g",
+            "carbohydrates": "40g",
+            "protein": "20g",
+            "sodium": "900mg",
+            "fiber": "4g"
+        }
+    },
+    {
+        "id": 9,
+        "price": 8.99,
+        "name": "Spaghetti Carbonara",
+        "favourite": true,
+        "star": 4.5,
+        "tags": [
+            "pasta",
+            "italian"
+        ],
+        "imageUrl": "/assets/spaghetti.jpg",
+        "cookTime": "20-25 minutes",
+        "origins": "Italy",
+        "facts": [
+            "Classic Roman pasta dish made with eggs, cheese, pancetta, and black pepper.",
+            "Named 'carbonara' because it was popular with charcoal workers (carbonai) in Italy."
+        ],
+        "calories": 550,
+        "nutrition": {
+            "fat": "25g",
+            "carbohydrates": "60g",
+            "protein": "20g",
+            "sodium": "800mg",
+            "fiber": "3g"
+        }
+    },
+    {
+        "id": 10,
+        "price": 14.99,
+        "name": "Sushi Platter",
+        "favourite": false,
+        "star": 4.8,
+        "tags": [
+            "sushi",
+            "japanese"
+        ],
+        "imageUrl": "/assets/sushi.jpg",
+        "cookTime": "30-35 minutes",
+        "origins": "Japan",
+        "facts": [
+            "Traditional Japanese dish consisting of vinegared rice, seafood, and vegetables.",
+            "Became popular globally in the 1980s and 1990s."
+        ],
+        "calories": 400,
+        "nutrition": {
+            "fat": "10g",
+            "carbohydrates": "70g",
+            "protein": "15g",
+            "sodium": "500mg",
+            "fiber": "2g"
+        }
+    },
+    {
+        "id": 11,
+        "price": 9.50,
+        "name": "Caesar Salad",
+        "favourite": true,
+        "star": 4.2,
+        "tags": [
+            "salad",
+            "vegetarian"
+        ],
+        "imageUrl": "/assets/caesarsalad.jpg",
+        "cookTime": "10-15 minutes",
+        "origins": "Mexico",
+        "facts": [
+            "Created by Italian-American restaurateur Caesar Cardini in Mexico.",
+            "Signature ingredients include romaine lettuce, croutons, Parmesan cheese, and Caesar dressing."
+        ],
+        "calories": 250,
+        "nutrition": {
+            "fat": "15g",
+            "carbohydrates": "20g",
+            "protein": "10g",
+            "sodium": "600mg",
+            "fiber": "5g"
+        }
+    },
+    {
+        "id": 12,
+        "price": 17.50,
+        "name": "Lobster Tail",
+        "favourite": false,
+        "star": 4.9,
+        "tags": [
+            "seafood",
+            "luxury"
+        ],
+        "imageUrl": "/assets/lobstertail.jpeg",
+        "cookTime": "25-30 minutes",
+        "origins": "Global",
+        "facts": [
+            "Considered a delicacy in many cultures, lobster tail is prized for its tender meat.",
+            "Often steamed or grilled and served with butter."
+        ],
+        "calories": 200,
+        "nutrition": {
+            "fat": "10g",
+            "carbohydrates": "5g",
+            "protein": "25g",
+            "sodium": "500mg",
+            "fiber": "1g"
+        }
+    },
+    {
+        "id": 13,
+        "price": 4.25,
+        "name": "Falafel Wrap",
+        "favourite": true,
+        "star": 4.0,
+        "tags": [
+            "wrap",
+            "vegetarian",
+            "middle eastern"
+        ],
+        "imageUrl": "/assets/falafelwrap.jpg",
+        "cookTime": "15-20 minutes",
+        "origins": "Middle East",
+        "facts": [
+            "Popular Middle Eastern street food made from ground chickpeas or fava beans.",
+            "Served in a pita or wrap with vegetables and tahini sauce."
+        ],
+        "calories": 350,
+        "nutrition": {
+            "fat": "15g",
+            "carbohydrates": "45g",
+            "protein": "10g",
+            "sodium": "700mg",
+            "fiber": "6g"
+        }
+    },
+    {
+        "id": 14,
+        "price": 6.99,
+        "name": "Tacos al Pastor",
+        "favourite": false,
+        "star": 4.3,
+        "tags": [
+            "tacos",
+            "mexican",
+            "street food"
+        ],
+        "imageUrl": "/assets/tacos.jpeg",
+        "cookTime": "15-20 minutes",
+        "origins": "Mexico",
+        "facts": [
+            "Traditional Mexican dish influenced by Lebanese cuisine.",
+            "Marinated pork cooked on a vertical spit and served with pineapple."
+        ],
+        "calories": 300,
+        "nutrition": {
+            "fat": "12g",
+            "carbohydrates": "30g",
+            "protein": "15g",
+            "sodium": "600mg",
+            "fiber": "3g"
+        }
+    },
+    {
+        "id": 15,
+        "price": 3.99,
+        "name": "Chocolate Brownie",
+        "favourite": true,
+        "star": 4.7,
+        "tags": [
+            "dessert",
+            "chocolate"
+        ],
+        "imageUrl": "/assets/brownie.jpg",
+        "cookTime": "20-25 minutes",
+        "origins": "USA",
+        "facts": [
+            "Classic American dessert dating back to the late 19th century.",
+            "Rich, fudgy chocolate square often served warm with ice cream."
+        ],
+        "calories": 400,
+        "nutrition": {
+            "fat": "20g",
+            "carbohydrates": "50g",
+            "protein": "5g",
+            "sodium": "300mg",
+            "fiber": "2g"
+        }
+    },
+    {
+        "id": 16,
+        "price": 11.25,
+        "name": "Pad Thai",
+        "favourite": true,
+        "star": 4.4,
+        "tags": [
+            "noodles",
+            "thai",
+            "spicy"
+        ],
+        "imageUrl": "/assets/padthai.jpeg",
+        "cookTime": "20-25 minutes",
+        "origins": "Thailand",
+        "facts": [
+            "Popular Thai street food dish made with stir-fried rice noodles, tofu, shrimp, peanuts, and bean sprouts.",
+            "Combines flavors of sweet, sour, salty, and spicy."
+        ],
+        "calories": 450,
+        "nutrition": {
+            "fat": "15g",
+            "carbohydrates": "65g",
+            "protein": "20g",
+            "sodium": "900mg",
+            "fiber": "4g"
+        }
+    }
+]

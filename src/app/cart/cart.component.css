@@ -1,0 +1,57 @@
+.cart-container {
+    margin: 20px;
+  }
+
+  .container{
+    /* width: 60%; */
+    /* background-color: azure; */
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: azure
+  }
+  
+  th, td {
+    border: 1px solid #ffffff;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  th {
+    background-color: #ffffff;
+  }
+  
+  td img {
+    height: 12rem;
+    width: 12rem;
+    object-fit: cover;
+    object-position: 50% 50%;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px 0px black;
+    margin-bottom: 1rem;
+  }
+  
+  .scrollable-container {
+    height: calc(100vh - 120px); /* Adjust height as needed */
+    overflow-y: auto;
+    /* padding: 20px; */
+  }
+
+  .emptyMessage img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35%;
+  }
+  
+  *{
+    /* background-color: azure; */
+
+  }

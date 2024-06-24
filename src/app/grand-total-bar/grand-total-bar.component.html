@@ -1,0 +1,8 @@
+<footer>
+    <div class="footer-content">
+      <h1 class="total-item">Total Items: {{cartItemCount}}</h1>
+      <h1 class="grand-total">Grand Total: ₹{{grandTotal}}</h1>
+      <button class="btn btn-success" (click)="showCheckoutEvent()" [disabled]="grandTotal === 0">Checkout</button>
+    </div>
+  </footer>
+  

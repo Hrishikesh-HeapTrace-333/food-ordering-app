@@ -1,0 +1,72 @@
+<div class="scrollable-container" *ngIf="!showOrder">
+  <div class="container">
+    <div class="modal-overlay">
+      <div class="modal-content">
+        <button class="close-button" (click)="closeModal()">×</button>
+        <div class="modal-body">
+          <h1>Do you wanna checkout?</h1>
+
+          <div class="container">
+            <div
+              *ngIf="cartItems.length === 0; else tableshow"
+              class="emptyMessage"
+            >
+              <!-- <h4>Come on add something to cart!!</h4> -->
+              <img src="../../assets/emptyCart.png" alt="" srcset="" />
+            </div>
+            <ng-template #tableshow>
+              <p-table
+                [value]="cartItems"
+                [tableStyle]="{ 'min-width': '50rem' }"
+              >
+                <ng-template pTemplate="header">
+                  <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Qty</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                  </tr>
+                </ng-template>
+
+                <ng-template pTemplate="body" let-item>
+                  <!--Here internally ngFor is called-->
+                  <tr>
+                    <td>
+                      <img
+                        [src]="item.food.imageUrl"
+                        alt="{{ item.food.name }}"
+                        width="40"
+                      />
+                    </td>
+                    <td>{{ item.food.name }}</td>
+                    <td>
+                        {{ item.number }}</td>
+                    <td>{{ item.food.price * 15 | currency : "INR" }}</td>
+                    <td>
+                      {{
+                        item.food.price * item.number * 15 | currency : "INR"
+                      }}
+                    </td>
+                  </tr>
+                </ng-template>
+              </p-table>
+            </ng-template>
+
+            <div class="order" *ngIf="!isLoggedIn(); else loggedIn">
+                <button class="btn btn-success my-2" (click) = "makeIsComeFromCheckoutTrue()">login first</button>
+            </div>
+            <ng-template #loggedIn>
+                <div class="order" >
+                    <button class="btn btn-success my-2" (click)="showOrderSuccess()">Order</button>
+                </div>
+            </ng-template>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-order-success *ngIf="showOrder"  (closeOrder) = "hideOrderSuccess()"></app-order-success>

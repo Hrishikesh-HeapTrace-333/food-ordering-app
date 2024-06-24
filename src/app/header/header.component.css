@@ -5,7 +5,7 @@ header {
     margin: 0;
 }
 
-a {
+a,h5 {
     padding: 1em;
     margin: 0;
     color: dodgerblue;
@@ -27,7 +27,6 @@ a:hover {
 
 a.logo {
     font-weight: bold;
-    
     text-decoration: none;
 }
 
@@ -40,10 +39,21 @@ nav ul {
 
 nav ul li {
     margin: 0;
+    display: inline-block;
 }
 
 nav ul li a {
     padding: 1em;
     text-decoration: none;
     display: inline-block;
+}
+.badge {
+    background-color: rgb(0, 132, 255);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 50%;
+    font-size: 0.8em;
+    position: relative;
+    top: -14px;
+    left: -12px;
 }

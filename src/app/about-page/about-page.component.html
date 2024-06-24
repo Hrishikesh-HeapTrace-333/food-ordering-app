@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Our Food Corner</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: azure;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #007bff;
+    }
+
+    .dish {
+      margin-bottom: 50px;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .dish-image {
+      float: left;
+      margin-right: 20px;
+      max-width: 250px;
+      border-radius: 5px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .dish-content {
+      overflow: hidden;
+    }
+
+    .dish-title {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .dish-description {
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .origins {
+      font-style: italic;
+    }
+
+    .tags {
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      background-color: #007bff;
+      color: #fff;
+      padding: 5px 10px;
+      margin-right: 10px;
+      border-radius: 5px;
+    }
+
+    .tag:hover {
+      background-color: #0056b3;
+      cursor: pointer;
+    }
+
+    .clearfix::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  </style>
+</head>
+
+<body>
+    <app-header></app-header>
+  <div class="container">
+    <h1>Welcome to Our Food Corner!</h1>
+    <hr>
+
+    <h1 style="font-size:xx-large; color:#0056b3;">Dish Of the Day!!</h1>
+
+    <div class="dish clearfix">
+      <img src="/assets/burger.jpeg" alt="Cheeseburger" class="dish-image">
+      <div class="dish-content">
+        <h2 class="dish-title">Cheeseburger</h2>
+        <p class="dish-description">A classic American favorite, our Cheeseburger is packed with juicy beef, melted cheese, and fresh veggies. Perfect for any time of day!</p>
+        <p class="origins">Origin: USA</p>
+        <div class="tags">
+          <span class="tag">burger</span>
+          <span class="tag">beef</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish clearfix">
+      <img src="/assets/chickenlegpiece.jpg" alt="Grilled Chicken Leg Piece" class="dish-image">
+      <div class="dish-content">
+        <h2 class="dish-title">Grilled Chicken Leg Piece</h2>
+        <p class="dish-description">Tender chicken, grilled to perfection with a blend of spices from around the globe. Savor the smoky flavors in every bite.</p>
+        <p class="origins">Origin: Global</p>
+        <div class="tags">
+          <span class="tag">chicken</span>
+          <span class="tag">grill</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add more dishes following the same structure -->
+
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<app-header *ngIf="reRenderHeader"></app-header>
+<app-header *ngIf="!reRenderHeader"></app-header>
+
+<div class="scrollable-container">
+  <div class="container">
+    <div *ngIf="cartItems.length === 0; else tableshow" class="emptyMessage">
+      <img src="../../assets/emptyCart.png" alt="" srcset="" />
+    </div>
+    <ng-template #tableshow>
+      <p-table [value]="cartItems" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Image</th>
+            <th>Food Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-item>
+          <tr>
+            <td>
+              <img
+                [src]="item.food.imageUrl"
+                alt="{{ item.food.name }}"
+                width="40"
+              />
+            </td>
+            <td>{{ item.food.name }}</td>
+            <td>
+              <button
+                class="btn btn-warning"
+                (click)="cutFromCart(item.food.id)"
+                *ngIf="item.number > 0"
+              >
+                -</button
+              >&nbsp; <span class="quantity">{{ item.number }}</span
+              >&nbsp;
+              <button class="btn btn-warning" (click)="addToCart(item.food.id)">
+                +
+              </button>
+            </td>
+            <td>{{ item.food.price * 15 | currency : "INR" }}</td>
+            <td>{{ item.food.price * item.number * 15 | currency : "INR" }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </ng-template>
+  </div>
+</div>
+
+<app-checkout
+  *ngIf="isCheckout"
+  (hideCheckout)="hideCheckout()"
+  (renderHeaderFooter)="changeRender()"
+></app-checkout>
+
+<app-grand-total-bar
+  (showCheckout)="showCheckout()"
+  *ngIf="reRenderHeader"
+></app-grand-total-bar>
+<app-grand-total-bar
+  (showCheckout)="showCheckout()"
+  *ngIf="!reRenderHeader"
+></app-grand-total-bar>

@@ -1,0 +1,124 @@
+/* Global styles */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    /* width: 1%;
+    height: 1%; */
+  }
+  100% {
+    opacity: 1;
+    /* width: 100%;
+    height: 100%; */
+  }
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(4px); /* Blur effect for the background */
+  -webkit-backdrop-filter: blur(4px); /* For Safari */
+  background-color: rgba(0, 0, 0, 0.5); /* Fallback color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.hidden-header {
+  display: none;
+}
+
+
+.badge {
+  background-color: red;
+  color: rgb(0, 0, 0);
+  padding: 2px 8px;
+  border-radius: 50%;
+  font-size: 0.8em;
+  position: relative;
+  top: -10px;
+  left: -10px;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: azure; /* White background */
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  max-width: 60%; /* Adjusted for better readability */
+  max-height: 60%; /* Adjusted for better readability */
+  overflow-y: auto; /* Enable scrolling if content exceeds modal height */
+  animation: fadeIn 0.5s ease-out; /* Apply the fadeIn animation */
+  transition: opacity 0.5s ease-out; /* Smooth transition for opacity */
+  opacity: 1; /* Ensure modal is initially visible */
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: gray;
+}
+
+.close-button:hover {
+  color: black;
+}
+
+/* Food Details Section */
+.food-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Adjusted for better alignment */
+}
+
+.image {
+  flex: 0 0 auto; /* Prevent image from growing */
+  margin-right: 1.5rem; /* Spacing between image and details */
+}
+
+.modal-image {
+  height: 18rem;
+  width: 18rem;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Slightly enhanced shadow */
+}
+
+.details {
+  flex: 1 1 auto; /* Allow details section to grow */
+}
+
+/* Facts and Nutrition */
+.facts-nutrition {
+  margin-top: 1rem;
+}
+
+.facts p {
+  margin: 0; /* Remove default margins */
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}

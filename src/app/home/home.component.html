@@ -1,39 +1,89 @@
-<div class="container">
-  <ul>
-    <li *ngFor="let food of foods">
-      <a>
-        <img src="{{ food.imageUrl }}" class="" />
+<app-header *ngIf="reRenderHeader"></app-header>
+<app-header *ngIf="!reRenderHeader"></app-header>
 
-        <div class="content">
-          <div class="head">
-            <div class="name">
-              {{ food.name }}
-            </div>
-            <span class="{{ food.favourite ? '' : 'not ' }} favourite">❤️</span>
+<div class="scrollable-container">
+  <div class="container">
+    <div class="row my-3 mx-2 justify-content-center">
+      <div class="col-sm-4">
+        <div class="input-group">
+          <input
+            type="text"
+            [(ngModel)]="filterText"
+            (input)="filter()"
+            placeholder="Search foods..."
+            class="form-control"
+          />
+          <div class="clear-button" *ngIf="filterText">
+            <button
+              class="btn"
+              type="button"
+              (click)="clearFilterText()"
+              id="clear-button"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
-          <br />
-          <div class="rating">
-            <ngb-rating
-              [max]="5"
-              [readonly]="true"
-              [rate]="food.star"
-              [ngClass]="getClass(food.star)"
-            ></ngb-rating>
-          </div>
-
-          <div class="origin">
-            <span>{{ food.origins }}</span>
-          </div>
-
-          <div class="cook-time">
-            <span>⏰ {{ food.cookTime }}</span>
-          </div>
-
-          <div class="price">
-            <span>{{ food.price | currency : "INR" }}</span>
+          <div class="rating-sort mx-3">
+            <button class="btn btn-primary" (click) = 'sortByRating()'>rating {{direction}}</button>
           </div>
         </div>
-      </a>
-    </li>
-  </ul>
+
+        
+      </div>
+    </div>
+
+    <ul>
+      <li *ngFor="let food of foods">
+        <a (click)="openModal(food.id)">
+          <img [src]="food.imageUrl" class="" />
+
+          <div class="content">
+            <div class="head">
+              <div class="name">
+                {{ food.name }}
+              </div>
+              <span class="{{ food.favourite ? '' : 'not ' }}favourite"
+                >❤️</span
+              >
+            </div>
+            <div class="rating">
+              <ngb-rating
+                [max]="5"
+                [readonly]="true"
+                [rate]="food.star"
+                [ngClass]="getClass(food.star)"
+              ></ngb-rating>
+            </div>
+
+            <div class="origin">
+              <span>{{ food.origins }}</span>
+            </div>
+
+            <div class="cook-time">
+              <span>⏰ {{ food.cookTime }}</span>
+            </div>
+
+            <div class="price">
+              <span>{{ food.price * 15 | currency : "INR" }}</span>
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
 </div>
+
+<div class="container">
+  <app-pop-up-modal
+    *ngIf="foodId !== 0"
+    [idInput]="foodId"
+    (closeModalEvent)="closeModal()"
+  ></app-pop-up-modal>
+</div>
+
+<app-checkout  *ngIf="isCheckout" (hideCheckout) = "hideCheckout()" (renderHeaderFooter) = "changeRender()"></app-checkout>
+
+<!-- <div *ngIf="cartCountNumber !== 0"> -->
+  <app-grand-total-bar (showCheckout) = "showCheckout()" *ngIf="reRenderHeader"></app-grand-total-bar>
+  <app-grand-total-bar (showCheckout) = "showCheckout()" *ngIf="!reRenderHeader"></app-grand-total-bar>
+<!-- </div> -->

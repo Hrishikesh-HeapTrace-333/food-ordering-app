@@ -1,0 +1,11 @@
+.container{
+    margin-top: 2rem;
+    width: 25rem;
+    /* border: 1px solid black; */
+    box-shadow: 2px 2px 3px 2px gray;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: azure;
+    color: #333;
+}

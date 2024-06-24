@@ -1,0 +1,63 @@
+<ng-container *ngIf="true">
+  <app-header style="display: none"></app-header>
+</ng-container>
+
+<div class="modal-overlay">
+  <div class="modal-content">
+    <button class="close-button" (click)="closeModal()">×</button>
+
+    <!-- Modal Content -->
+    <div class="modal-body">
+      <div class="food-details">
+        <div class="image">
+          <img [src]="food.imageUrl" class="modal-image" alt="Food Image" />
+          <br /><br /><br />
+          <div class="buttons text-center">
+            <div class="quantity-control">
+              <button
+                class="btn btn-warning"
+                (click)="cutFromCart()"
+                *ngIf="quantityInCart > 0"
+              >
+                -</button
+              >&nbsp; <span class="quantity">{{ quantityInCart }}</span
+              >&nbsp;
+              <button class="btn btn-warning" (click)="addToCart()">+</button>
+              <button class="btn btn-primary mx-3">
+                <a routerLink="/cart">Go to Cart</a>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="details">
+          <h2>{{ food.name }}</h2>
+          <div class="origin"><strong>Origin:</strong> {{ food.origins }}</div>
+
+          <div class="price">
+            <strong>Price:</strong> {{ food.price * 15 | currency : "INR" }}
+          </div>
+
+          <div class="facts-nutrition">
+            <h3>Facts</h3>
+            <div class="facts">
+              <p>{{ food.facts.join(", ") }}</p>
+            </div>
+            <br />
+            <h3>Nutrition</h3>
+            <ul>
+              <li><strong>Calories:</strong> {{ food.calories }}</li>
+              <li><strong>Protein:</strong> {{ food.nutrition.protein }}</li>
+              <li>
+                <strong>Carbohydrates:</strong>
+                {{ food.nutrition.carbohydrates }}
+              </li>
+              <li><strong>Fat:</strong> {{ food.nutrition.fat }}</li>
+              <li><strong>Sodium:</strong> {{ food.nutrition.sodium }}</li>
+              <li><strong>Fiber:</strong> {{ food.nutrition.fiber }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
