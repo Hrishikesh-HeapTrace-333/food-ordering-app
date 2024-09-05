@@ -10,8 +10,9 @@ import { getFoodStateA, setFoodStateA } from 'src/app/store/food.action'; // Imp
   providedIn: 'root',
 })
 export class FoodService {
-  public textFilter : string = '';
+  public textFilter: string = '';
   private foods: Food[] = [];
+  private foodFromDbUrl: string = 'http://localhost:8000/api/foods';
   private getFoodUrl = 'assets/food.json';
 
   constructor(
@@ -21,12 +22,20 @@ export class FoodService {
 
   // Fetch data from URL, store in store, and return the stored data
   getAll(): Observable<any> {
-    return this.http.get<any>(this.getFoodUrl).pipe(
+    return this.http.get<any>(this.foodFromDbUrl).pipe(
       tap((data) => {
         this.foods = data; // Update local foods array
         this.store.dispatch(setFoodStateA({ foods: this.foods })); // Dispatch action with fetched data
       })
     );
+    // console.log('foods', this.foods);
+
+    // return this.http.get<any>(this.getFoodUrl).pipe(
+    //   tap((data) => {
+    //     this.foods = data; // Update local foods array
+    //     this.store.dispatch(setFoodStateA({ foods: this.foods })); // Dispatch action with fetched data
+    //   })
+    // );
   }
 
   // Return the stored data from the store

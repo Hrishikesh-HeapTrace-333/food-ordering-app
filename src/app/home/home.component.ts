@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   reRenderHeader: boolean = false;
   cartCountNumber: number = 0;
   isCheckout: boolean = false;
-  direction : string = '⬆';
+  direction: string = '⬆';
 
   getClass(star: number): string {
     if (star >= 4.5) return 'rating-5';
@@ -61,6 +61,7 @@ export class HomeComponent implements OnInit {
         this.foods = data.foods.filter((food: { name: string }) =>
           food.name.toLowerCase().includes(this.filterText.toLowerCase())
         );
+        console.log('foods', this.foods);
       }, 0);
 
       // if (this.foods.length === 0) this.route.navigateByUrl('/notfoundpage');
@@ -95,17 +96,13 @@ export class HomeComponent implements OnInit {
     this.reRenderHeader = !this.reRenderHeader;
   }
 
-  sortByRating(){
-    if(this.direction === '⬆')
-      this.direction = '⬇️';
-    else
-      this.direction = '⬆';
+  sortByRating() {
+    if (this.direction === '⬆') this.direction = '⬇️';
+    else this.direction = '⬆';
 
-      this.foods.sort((a, b) =>{
-        if(this.direction === '⬆')
-        return a.star - b.star;
-        else 
-        return b.star - a.star;
-      })
+    this.foods.sort((a, b) => {
+      if (this.direction === '⬆') return a.star - b.star;
+      else return b.star - a.star;
+    });
   }
 }

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../service/user/user.service';
 import { Router } from '@angular/router';
-import { HomeComponent } from '../home/home.component';
+import { User } from '../shared/model/user';
 
 @Component({
   selector: 'app-registration-form',
@@ -16,36 +16,63 @@ export class RegistrationFormComponent implements OnInit {
 
   userIdCount: number = 1;
 
-  constructor(private userService: UserService, private router : Router) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
     this.registrationForm = new FormGroup({
-      firstName: new FormControl(''),
-      lastName: new FormControl(''),
-      email: new FormControl(''),
-      phone: new FormControl(''),
-      password: new FormControl(''),
-      confirmPassword: new FormControl(''),
+      firstName: new FormControl('', Validators.required),
+      lastName: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      phone: new FormControl('', [
+        Validators.required,
+        Validators.pattern(/^[0-9]{10}$/),
+      ]),
+      password: new FormControl('', Validators.required),
+      confirmPassword: new FormControl('', [
+        Validators.required,
+        this.passwordMatchValidator.bind(this),
+      ]),
     });
   }
 
-  submitForm() {
+  submitForm(): void {
     this.r = this.registrationForm.value;
-    console.log(this.r);
-
-    this.userService.addUser({
-      userId : ++this.userIdCount,
+    this.addUser({
+      userId: 0,
       firstName: this.r.firstName,
       lastName: this.r.lastName,
       email: this.r.email,
       phone: this.r.phone,
-      password : this.r.password,
+      password: this.r.password,
       cart: {
-        userId: this.userIdCount,
+        userId: 0,
         orderDetails: [],
       },
+    }).then((success) => {
+      if (success) {
+        // handle successful user addition
+        alert('User added successfully');
+        // additional logic for successful user addition
+      } else {
+        // handle failure to add user
+        alert('Failed to add user');
+      }
     });
+  }
 
-    this.router.navigateByUrl("/login");
+  async addUser(user: User): Promise<boolean> {
+    console.log('user', user);
+    return this.userService.addUser(user);
+  }
+
+  private passwordMatchValidator(
+    control: FormControl
+  ): { [key: string]: boolean } | null {
+    if (this.registrationForm) {
+      return control.value === this.registrationForm.get('password')?.value
+        ? null
+        : { mismatch: true };
+    }
+    return null;
   }
 }

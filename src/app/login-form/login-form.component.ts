@@ -4,8 +4,7 @@ import { UserService } from '../service/user/user.service';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { User } from '../shared/model/user';
-import { getActiveUserStateA, setActiveUserStateA } from '../store/food.action';
-import { data } from 'jquery';
+import { setActiveUserStateA } from '../store/food.action';
 import { CartServiceService } from '../service/cart/cart-service.service';
 
 export interface ValidUser {
@@ -21,66 +20,60 @@ export interface ValidUser {
 export class LoginFormComponent implements OnInit {
   loginForm!: FormGroup;
 
-  r!: any;
-
   validUser: ValidUser = {
     isValid: false,
-    user: {
-      userId: 0,
-      firstName: '',
-      lastName: '',
-      email: '',
-      phone: '',
-      password: '',
-      cart: {
-        userId: 0,
-        orderDetails: [],
-      },
-    },
+    user: undefined,
   };
 
   constructor(
     private userService: UserService,
     private router: Router,
     private activeUserStore: Store<{ user: User }>,
-    private cartService : CartServiceService
+    private cartService: CartServiceService
   ) {}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
-      email: new FormControl(null, [Validators.required, Validators.email]),
-      password: new FormControl(null),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required]),
     });
   }
 
-  submitForm(): void {
-    this.r = this.loginForm.value;
-    this.validUser = this.userService.authenticate({
-      email: this.r.email,
-      password: this.r.password,
-    });
-  
-    if (this.validUser.isValid && this.validUser.user) { // Ensure 'user' is defined
-      // Clone the user object to avoid modifying the original state directly
-      const updatedUser = { ...this.validUser.user };
-  
-      // Check if cartService.cart is defined
-      if (this.cartService.cart !== undefined) {
-        updatedUser.cart = this.cartService.cart; // Update the cloned object
-      }
-  
-      // Dispatch action to update activeUser state
-      this.activeUserStore.dispatch(
-        setActiveUserStateA({ activeUser: updatedUser })
-      );
-  
-      if (this.userService.isComeFromCheckout) {
-        this.router.navigateByUrl('/checkout');
+  async submitForm(): Promise<void> {
+    if (this.loginForm.invalid) {
+      // Mark all controls as touched to show validation errors
+      this.loginForm.markAllAsTouched();
+      return;
+    }
+
+    const { email, password } = this.loginForm.value;
+
+    try {
+      this.validUser = await this.userService.authenticate({ email, password });
+      console.log('valid user', this.validUser);
+
+      if (this.validUser.isValid && this.validUser.user) {
+        const updatedUser = { ...this.validUser.user };
+
+        if (this.cartService.cart) {
+          updatedUser.cart = this.cartService.cart;
+        }
+
+        this.activeUserStore.dispatch(
+          setActiveUserStateA({ activeUser: updatedUser })
+        );
+
+        if (this.userService.isComeFromCheckout) {
+          this.router.navigateByUrl('/checkout');
+        } else {
+          this.router.navigateByUrl('/home');
+        }
       } else {
-        this.router.navigateByUrl('/home');
+        alert('Invalid email or password');
       }
+    } catch (error) {
+      console.error('Error during authentication:', error);
+      alert('An error occurred during login. Please try again later.');
     }
   }
-  
-  
 }
